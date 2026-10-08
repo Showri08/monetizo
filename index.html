@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monetizo – Social Media Monetization Services</title>
+<meta name="description" content="Get your Facebook, Instagram, TikTok and YouTube accounts monetization-ready. Individual services and bundles.">
+<style>
+:root{--bg:#0b0f1a;--card:#131a2b;--line:#222c45;--text:#e8ecf6;--muted:#93a0bd;--brand:#6c5ce7;--brand2:#00d1b2;--ok:#2ecc71;--err:#ff6b6b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:rgba(11,15,26,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
+.logo span{color:var(--brand2)}
+nav a{margin-left:22px;color:var(--muted);font-size:.95rem}
+nav a:hover{color:var(--text)}
+.btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:600;padding:12px 22px;border-radius:10px;color:#fff;background:linear-gradient(135deg,var(--brand),#8e7bff);transition:transform .15s,opacity .15s}
+.btn:hover{transform:translateY(-1px);opacity:.92}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+.hero{padding:90px 0 70px;text-align:center}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);line-height:1.1;margin:0 0 18px;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--brand2),#8e7bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:620px;margin:0 auto 30px;color:var(--muted);font-size:1.1rem}
+.hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.stats{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:50px;color:var(--muted);font-size:.95rem}
+.stats b{display:block;color:var(--text);font-size:1.6rem}
+section{padding:60px 0}
+h2{font-size:clamp(1.6rem,3.5vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
+.sub{color:var(--muted);margin:0 0 34px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--brand);transform:translateY(-3px)}
+.card.bundle{border-color:#3b3380;background:linear-gradient(180deg,#171d36,#131a2b)}
+.tag{align-self:flex-start;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 10px;border-radius:99px;background:#1d2547;color:#a99bff;margin-bottom:12px}
+.card.bundle .tag{background:#13342f;color:var(--brand2)}
+.card h3{margin:0 0 8px;font-size:1.2rem}
+.card p{margin:0 0 14px;color:var(--muted);font-size:.95rem}
+.card ul{margin:0 0 18px;padding:0;list-style:none;font-size:.9rem}
+.card li{padding:3px 0 3px 22px;position:relative;color:#c5cde0}
+.card li:before{content:"✓";position:absolute;left:0;color:var(--brand2);font-weight:700}
+.card .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.price{font-size:1.3rem;font-weight:800}
+.price small{font-weight:400;color:var(--muted);font-size:.8rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.step i{font-style:normal;display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--brand);font-weight:700;margin-bottom:10px}
+.step h4{margin:0 0 6px}.step p{margin:0;color:var(--muted);font-size:.93rem}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600}
+.faq p{color:var(--muted);margin:10px 0 0}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:.9rem;text-align:center}
+/* modal */
+.overlay{position:fixed;inset:0;background:rgba(3,6,14,.75);display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:30px 14px;z-index:50}
+.overlay.open{display:flex}
+.modal{background:var(--card);border:1px solid var(--line);border-radius:18px;width:100%;max-width:620px;padding:28px;position:relative}
+.modal h3{margin:0 0 4px;font-size:1.4rem}
+.close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--muted);font-size:1.6rem;cursor:pointer}
+fieldset{border:0;padding:0;margin:20px 0 0}
+legend{font-weight:700;color:var(--brand2);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;padding:0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.row{grid-template-columns:1fr}nav{display:none}}
+label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:12px}
+input,select,textarea{width:100%;margin-top:5px;padding:11px 12px;border-radius:9px;border:1px solid var(--line);background:#0d1324;color:var(--text);font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--brand);border-color:transparent}
+.paybox{background:#0d1324;border:1px dashed var(--line);border-radius:10px;padding:12px 14px;font-size:.88rem;color:#c5cde0;margin-bottom:12px}
+.paybox b{color:var(--text)}
+.notice{font-size:.8rem;color:var(--muted);margin:10px 0 16px}
+.msg{padding:12px 14px;border-radius:10px;margin-top:14px;font-size:.92rem;display:none}
+.msg.ok{display:block;background:#10281c;color:var(--ok)}
+.msg.err{display:block;background:#2e1416;color:var(--err)}
+button[disabled]{opacity:.6;cursor:wait}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Monetizo<span>.</span></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#bundles">Bundles</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn" href="#services">Get started</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero wrap">
+    <h1>Turn your social media into <em>real income</em></h1>
+    <p>We set up, optimize and grow your Facebook, Instagram, TikTok and YouTube accounts so they qualify for monetization. Pick a single service or a bundle.</p>
+    <div class="cta">
+      <a class="btn" href="#services">Browse services</a>
+      <a class="btn ghost" href="#bundles">See bundles</a>
+    </div>
+    <div class="stats">
+      <div><b>4+</b>Platforms</div>
+      <div><b>Fast</b>Delivery</div>
+      <div><b>1-on-1</b>Support</div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>Individual services</h2>
+      <p class="sub">Choose exactly what you need. Each service is delivered on its own.</p>
+      <div class="grid" id="serviceGrid"></div>
+    </div>
+  </section>
+
+  <section id="bundles">
+    <div class="wrap">
+      <h2>Mixed bundles</h2>
+      <p class="sub">Combine services and save. Ideal if you're active on more than one platform.</p>
+      <div class="grid" id="bundleGrid"></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p class="sub">Simple, transparent, no surprises.</p>
+      <div class="steps">
+        <div class="step"><i>1</i><h4>Choose a service</h4><p>Pick a single service or a bundle and click its order button.</p></div>
+        <div class="step"><i>2</i><h4>Pay &amp; submit</h4><p>Send payment via Zelle, Cash App, Venmo, PayPal or bank transfer, then fill the form with your transaction ID.</p></div>
+        <div class="step"><i>3</i><h4>We verify</h4><p>We confirm your payment and contact you by text, WhatsApp or email.</p></div>
+        <div class="step"><i>4</i><h4>We deliver</h4><p>Work starts right away, with updates along the way.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap faq">
+      <h2>FAQ</h2>
+      <p class="sub">Quick answers before you order.</p>
+      <details><summary>Do you guarantee monetization approval?</summary><p>Platforms make the final decision, so no one can honestly guarantee it. We prepare your account to meet every eligibility requirement and fix issues that commonly cause rejection.</p></details>
+      <details><summary>Do you need my password?</summary><p>No. We never ask for your password. We work through page roles, shared access or by guiding you step by step.</p></details>
+      <details><summary>Is it safe to pay?</summary><p>You pay by Zelle, Cash App, Venmo, PayPal or bank transfer. We never ask for card numbers, PINs or one-time codes. Never share these with anyone.</p></details>
+      <details><summary>What if I'm not eligible yet?</summary><p>We'll tell you what's missing and build a plan to get you there.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Monetizo. All rights reserved. · <span id="contactLine"></span></div>
+</footer>
+
+<!-- ORDER MODAL -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal">
+    <button class="close" id="closeBtn" aria-label="Close">×</button>
+    <h3 id="mTitle">Order service</h3>
+    <div style="color:var(--muted);font-size:.92rem" id="mSub"></div>
+
+    <form id="orderForm" novalidate>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+
+      <fieldset>
+        <legend>1 · Your details</legend>
+        <div class="row">
+          <label>Full name *<input name="full_name" required autocomplete="name"></label>
+          <label>Email *<input name="email" type="email" required autocomplete="email"></label>
+        </div>
+        <div class="row">
+          <label>Phone / Text / WhatsApp *<input name="phone" type="tel" required autocomplete="tel"></label>
+          <label>Profile / page link *<input name="profile_link" type="url" placeholder="https://..." required></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2 · Service</legend>
+        <label>Selected service *
+          <select name="service" id="serviceSelect" required></select>
+        </label>
+        <label>Extra notes (optional)<textarea name="notes" rows="2" placeholder="Followers, niche, goals…"></textarea></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>3 · Payment details</legend>
+        <div class="paybox" id="payInfo"></div>
+        <div class="row">
+          <label>Payment method *
+            <select name="payment_method" required>
+              <option value="">Select…</option>
+              <option>Zelle</option>
+              <option>Cash App</option>
+              <option>Venmo</option>
+              <option>PayPal</option>
+              <option>Bank transfer (ACH)</option>
+            </select>
+          </label>
+          <label>Your Zelle email/phone, $cashtag, @venmo or PayPal email *<input name="sender_account" required placeholder="Account you paid from"></label>
+        </div>
+        <div class="row">
+          <label>Amount paid (USD) *<input name="amount_paid" type="number" min="1" step="1" required></label>
+          <label>Transaction ID *<input name="transaction_id" required autocomplete="off"></label>
+        </div>
+        <div class="notice">🔒 Never enter card numbers, CVV, PINs or one-time codes here. We don't need them and will never ask.</div>
+      </fieldset>
+
+      <button class="btn" id="submitBtn" type="submit" style="width:100%">Submit order</button>
+      <div class="msg" id="formMsg"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+/* ============ EDIT THIS SECTION ============ */
+const CONFIG = {
+  brand: "Monetizo",
+  // Paste your Google Apps Script web-app URL or Formspree URL here (see README.md)
+  formEndpoint: "",
+  contact: "Phone/Text: +1 (XXX) XXX-XXXX · hello@yourdomain.com",
+  currency: "$",
+  payment: [
+    "Zelle: yourname@email.com",
+    "Cash App: $YourCashtag",
+    "Venmo: @YourVenmo",
+    "PayPal (Friends & Family): yourname@email.com",
+    "Bank transfer (ACH): Bank name · Account name · Routing no. · Account no."
+  ]
+};
+
+const SERVICES = [
+  { id:"fb-monetization", platform:"Facebook", name:"Facebook Monetization Setup",
+    desc:"Get your Page ready for in-stream ads, Stars and subscriptions.",
+    features:["Eligibility audit","Page optimization","Content policy review","Application support"], price:99 },
+  { id:"ig-monetization", platform:"Instagram", name:"Instagram Monetization Setup",
+    desc:"Profile and content strategy to unlock bonuses, subscriptions and brand deals.",
+    features:["Bio & profile makeover","Reels strategy","Professional account setup","Brand-deal readiness"], price:99 },
+  { id:"tt-monetization", platform:"TikTok", name:"TikTok Monetization Setup",
+    desc:"Prepare your account for the Creator Rewards Program and TikTok Shop.",
+    features:["Eligibility check","Niche & content plan","Original-content guidance","Application support"], price:119 },
+  { id:"yt-monetization", platform:"YouTube", name:"YouTube Monetization Setup",
+    desc:"Channel setup and growth plan toward Partner Program requirements.",
+    features:["Channel audit","SEO titles & tags","Thumbnail guidance","Partner Program application"], price:149 },
+  { id:"content-strategy", platform:"All platforms", name:"Content Strategy & Calendar",
+    desc:"A 30-day posting plan tailored to your niche and audience.",
+    features:["Niche research","30-day calendar","Hook & caption ideas","Hashtag sets"], price:69 },
+  { id:"video-editing", platform:"All platforms", name:"Short-Video Editing",
+    desc:"Reels, Shorts and TikTok edits that hold attention.",
+    features:["10 edited videos","Captions & subtitles","Music & transitions","2 revisions"], price:89 },
+  { id:"page-management", platform:"All platforms", name:"Page Management (Monthly)",
+    desc:"We handle posting, replies and basic analytics for you.",
+    features:["Scheduled posting","Comment & DM replies","Monthly report","1 platform"], price:199, per:"/mo" },
+  { id:"brand-outreach", platform:"All platforms", name:"Brand Deal Outreach",
+    desc:"Media kit and outreach to brands that fit your audience.",
+    features:["Media kit design","Brand shortlist","Pitch templates","Follow-up guidance"], price:99 }
+];
+
+const BUNDLES = [
+  { id:"bundle-starter", name:"Starter Bundle", desc:"Any 2 platform monetization setups plus a content calendar.",
+    features:["2 platform setups of your choice","30-day content calendar","Priority support"], price:199 },
+  { id:"bundle-creator", name:"Creator Bundle", desc:"Monetization setup on 3 platforms with editing and strategy.",
+    features:["3 platform setups","10 edited short videos","Content strategy","Brand outreach kit"], price:349 },
+  { id:"bundle-allin", name:"All-In Bundle", desc:"Everything: all 4 platforms plus management for one month.",
+    features:["FB + IG + TikTok + YouTube setup","Short-video editing","1 month page management","Brand deal outreach"], price:599 }
+];
+
+/* ============ APP LOGIC ============ */
+const $ = s => document.querySelector(s);
+const fmt = n => CONFIG.currency + Number(n).toLocaleString("en-US");
+const ALL = [...SERVICES.map(s=>({...s,kind:"Service"})), ...BUNDLES.map(b=>({...b,kind:"Bundle",platform:"Bundle"}))];
+
+function cardHTML(item, bundle){
+  return `<article class="card ${bundle?'bundle':''}">
+    <span class="tag">${bundle?'Bundle':item.platform}</span>
+    <h3>${item.name}</h3>
+    <p>${item.desc}</p>
+    <ul>${item.features.map(f=>`<li>${f}</li>`).join("")}</ul>
+    <div class="foot">
+      <div class="price">${fmt(item.price)}<small> ${item.per||''}</small></div>
+      <button class="btn" data-order="${item.id}">Order now</button>
+    </div>
+  </article>`;
+}
+$("#serviceGrid").innerHTML = SERVICES.map(s=>cardHTML(s,false)).join("");
+$("#bundleGrid").innerHTML = BUNDLES.map(b=>cardHTML(b,true)).join("");
+$("#serviceSelect").innerHTML = ALL.map(s=>`<option value="${s.id}">${s.kind==='Bundle'?'[Bundle] ':''}${s.name} — ${fmt(s.price)}</option>`).join("");
+$("#payInfo").innerHTML = "<b>Send payment to one of these:</b><br>" + CONFIG.payment.join("<br>");
+$("#contactLine").textContent = CONFIG.contact;
+$("#yr").textContent = new Date().getFullYear();
+
+const overlay = $("#overlay"), form = $("#orderForm"), msg = $("#formMsg");
+function openModal(id){
+  const item = ALL.find(x=>x.id===id) || ALL[0];
+  $("#serviceSelect").value = item.id;
+  $("#mTitle").textContent = "Order: " + item.name;
+  $("#mSub").textContent = "Price: " + fmt(item.price) + (item.per||"");
+  form.elements.amount_paid.value = item.price;
+  msg.className = "msg"; msg.textContent = "";
+  overlay.classList.add("open"); document.body.style.overflow = "hidden";
+}
+function closeModal(){ overlay.classList.remove("open"); document.body.style.overflow = ""; }
+document.addEventListener("click", e=>{
+  const b = e.target.closest("[data-order]"); if(b) openModal(b.dataset.order);
+});
+$("#closeBtn").onclick = closeModal;
+overlay.addEventListener("click", e=>{ if(e.target===overlay) closeModal(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeModal(); });
+$("#serviceSelect").addEventListener("change", e=>{
+  const item = ALL.find(x=>x.id===e.target.value);
+  $("#mTitle").textContent = "Order: " + item.name;
+  $("#mSub").textContent = "Price: " + fmt(item.price) + (item.per||"");
+  form.elements.amount_paid.value = item.price;
+});
+
+form.addEventListener("submit", async e=>{
+  e.preventDefault();
+  msg.className = "msg";
+  if(!form.checkValidity()){ form.reportValidity(); return; }
+  if(form.elements._gotcha.value) return; // bot
+  if(!CONFIG.formEndpoint){
+    msg.className = "msg err";
+    msg.textContent = "Form is not connected yet. The site owner needs to add formEndpoint in index.html (see README).";
+    return;
+  }
+  const item = ALL.find(x=>x.id===form.elements.service.value);
+  const data = new URLSearchParams(new FormData(form));
+  data.delete("_gotcha");
+  data.set("service_name", item.name);
+  data.set("service_price", item.price);
+  data.set("submitted_at", new Date().toISOString());
+  const btn = $("#submitBtn"); btn.disabled = true; btn.textContent = "Submitting…";
+  try{
+    await fetch(CONFIG.formEndpoint, { method:"POST", mode:"no-cors", body:data });
+    msg.className = "msg ok";
+    msg.textContent = "✅ Order received! We'll verify your transaction and contact you shortly.";
+    form.reset();
+  }catch(err){
+    msg.className = "msg err";
+    msg.textContent = "Something went wrong. Please check your connection and try again, or contact us directly.";
+  }finally{
+    btn.disabled = false; btn.textContent = "Submit order";
+  }
+});
+</script>
+</body>
+</html>
